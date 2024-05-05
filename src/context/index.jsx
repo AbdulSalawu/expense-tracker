@@ -16,13 +16,13 @@ export default function GlobalState({ children }) {
 
   function handleFormSubmit(currentFormData) {
     if (!currentFormData.description || !currentFormData.amount) return;
-    setAllTransactions([...allTransactions], {
+    setAllTransactions([...allTransactions, {
       ...currentFormData,
-      id: Date.now(),
-    });
+      id: Date.now()
+    },]);
   }
 
-  console.log(allTransactions);
+  console.log(allTransactions, "all transaction");
   return (
     <GlobalContext.Provider
       value={{
